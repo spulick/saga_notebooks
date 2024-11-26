@@ -18,8 +18,6 @@ This led to the launch of the first artificial satellite, Sputnik 1, and the cre
 
 ```js
 import {timeline} from "./components/timeline.js";
-//import {saveSvgAsPng} from "npm:save-svg-as-png";
-import {saveSvgAsPng} from "./components/saveSvgAsPng.js";
 ```
 
 ```js
@@ -28,14 +26,6 @@ const events = FileAttachment("./data/events.json").json();
 
 ```js
 timeline(events, {height: 300})
-```
-
-```js
-d3.select("#download")
-.on('click', function(){
-    // Get the d3js SVG element and save using saveSvgAsPng.js
-    saveSvgAsPng(document.getElementsByTagName("svg")[0], "plot.png", {scale: 1, backgroundColor: "#FFFFFF"});
-})
 ```
 
 ### Sputnik 1 (1957)

@@ -8,6 +8,10 @@ on:
   # Run this workflow when triggered manually in GitHub’s UI.
   workflow_dispatch: {}
 
+defaults:
+  run:
+    working-directory: ./saga
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,10 +19,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          cache-dependency-path: saga/package-lock.json
+          cache-dependency-path: package-lock.json
           node-version: 20
           cache: npm
-      - run: cd ./saga
       - run: npm ci
       - run: npm run build
       - name: Deploy to Observable Cloud
