@@ -29,38 +29,11 @@ const events = FileAttachment("./data/events.json").json();
 ```js
 const plot = timeline(events, {height: 300});
 
-view(plot)
+htmlToImage.toPng(plot, {pixelRatio: 2});
 
-htmlToImage
-  .toPng(plot, { pixelRatio: 2 })
-  .then(function (dataUrl) {
-    download(dataUrl, "my-node.png");
-  })
-  .catch(function (error) {
-    console.error("Image download failed: ", error);
-  });
+//view(plot);
 
-
-
-//const download_button = view(Inputs.button("Download graphic"))//, {value: null, reduce: () => 
-//download_button;
-
-//const download_graphic = (function* () {
-//    const png = htmlToImage.toPng(plot, { pixelRatio: 2 });
-//    console.log("inhere");
-//    download(png, "alga_graphic.png");
-//})();
-
-
-
-//  .then(function (dataUrl) {
-//    download(dataUrl, "my-node.png");
-//  })
-//  .catch(function (error) {
-//    console.error("Image download failed: ", error);
-//  })
-// }));
-//download_button;
+//const download_button = view(Inputs.button("Download graphic"), {value = null, reduce: () => });
 
 ```
 
