@@ -8,13 +8,13 @@ on:
   # Run this workflow when triggered manually in GitHub’s UI.
   workflow_dispatch: {}
 
-defaults:
-  run:
-    working-directory: ./saga
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./saga
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
