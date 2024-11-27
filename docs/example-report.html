@@ -8,15 +8,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
-<link rel="modulepreload" href="./_observablehq/client.3c7c9163.js">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="./_observablehq/client.6a2fb94e.js">
 <link rel="modulepreload" href="./_observablehq/runtime.9393ab6d.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.3ac83553.js">
-<link rel="modulepreload" href="./_import/components/timeline.3a99cfed.js">
+<link rel="modulepreload" href="./_import/components/timeline.3c3dc6bf.js">
+<link rel="modulepreload" href="./_import/components/download_graph.fc3f8d6e.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.3e4c82b9.js">
 <link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/e828d8c8.js">
-<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/html-to-image@1.11.11/17ad95e3.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
 <link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
 <link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
 <link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
 <link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
@@ -55,15 +61,15 @@
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
 <script type="module">
 
-import {define} from "./_observablehq/client.3c7c9163.js";
+import {define} from "./_observablehq/client.6a2fb94e.js";
 import {registerFile} from "./_observablehq/stdlib.3ac83553.js";
 
-registerFile("./data/events.json", {"name":"./data/events.json","mimeType":"application/json","path":"./_file/data/events.46a3a628.json","lastModified":1732597004010,"size":329});
+registerFile("./data/events.json", {"name":"./data/events.json","mimeType":"application/json","path":"./_file/data/events.b5378bd2.json","lastModified":1732623643963,"size":337});
 
-define({id: "e7d66736", outputs: ["timeline"], body: async () => {
-const {timeline} = await import("./_import/components/timeline.3a99cfed.js");
+define({id: "fc4eae76", outputs: ["timeline","download_graph"], body: async () => {
+const [{timeline}, {download_graph}] = await Promise.all([import("./_import/components/timeline.3c3dc6bf.js"), import("./_import/components/download_graph.fc3f8d6e.js")]);
 
-return {timeline};
+return {timeline,download_graph};
 }});
 
 define({id: "e4b77d4a", inputs: ["FileAttachment"], outputs: ["events"], body: (FileAttachment) => {
@@ -71,10 +77,21 @@ const events = FileAttachment("./data/events.json").json();
 return {events};
 }});
 
-define({id: "a330849e", inputs: ["timeline","events","display"], body: async (timeline,events,display) => {
-display(await(
-timeline(events, {height: 300})
-))
+define({id: "56f627d0", inputs: ["timeline","events","view","Inputs","download_graph"], outputs: ["plot"], body: (timeline,events,view,Inputs,download_graph) => {
+const plot = timeline(events, {height: 300});
+view(plot);
+
+view(
+  Inputs.button(
+    "Download graph",
+    {
+      value: null,
+      reduce: () => download_graph(plot)
+    }
+  )
+);
+
+return {plot};
 }});
 
 </script>
@@ -113,9 +130,9 @@ timeline(events, {height: 300})
 <p>Fast-forward to the 20th century during the Cold War era, the United States and the Soviet Union embarked on a space race, a competition to innovate and explore beyond Earth.</p>
 <p>This led to the launch of the first artificial satellite, Sputnik 1, and the crewed moon landing by Apollo 11. As technology advanced, rocket launches became synonymous with space exploration and satellite deployment.</p>
 <h2 id="the-space-shuttle-era" tabindex="-1"><a class="observablehq-header-anchor" href="#the-space-shuttle-era">The Space Shuttle era</a></h2>
-<div class="observablehq observablehq--block"><!--:e7d66736:--></div>
+<div class="observablehq observablehq--block"><!--:fc4eae76:--></div>
 <div class="observablehq observablehq--block"><!--:e4b77d4a:--></div>
-<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:a330849e:--></div>
+<div class="observablehq observablehq--block"><!--:56f627d0:--></div>
 <h3 id="sputnik-1-1957" tabindex="-1"><a class="observablehq-header-anchor" href="#sputnik-1-1957">Sputnik 1 (1957)</a></h3>
 <p>This was the first artificial satellite. Launched by the Soviet Union, it marked the beginning of the space age.</p>
 <h3 id="apollo-11-1969" tabindex="-1"><a class="observablehq-header-anchor" href="#apollo-11-1969">Apollo 11 (1969)</a></h3>
@@ -142,7 +159,7 @@ timeline(events, {height: 300})
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./"><span>Saga</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-11-26T16:46:17">Nov 26, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-11-28T02:31:11">Nov 28, 2024</a>.</div>
 </footer>
 </div>
 </body>

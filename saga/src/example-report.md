@@ -18,8 +18,7 @@ This led to the launch of the first artificial satellite, Sputnik 1, and the cre
 
 ```js
 import {timeline} from "./components/timeline.js";
-import {download} from "./components/download.js";
-import * as htmlToImage from "npm:html-to-image";
+import {download_graph} from "./components/download_graph.js";
 ```
 
 ```js
@@ -28,12 +27,17 @@ const events = FileAttachment("./data/events.json").json();
 
 ```js
 const plot = timeline(events, {height: 300});
+view(plot);
 
-htmlToImage.toPng(plot, {pixelRatio: 2});
-
-//view(plot);
-
-//const download_button = view(Inputs.button("Download graphic"), {value = null, reduce: () => });
+view(
+  Inputs.button(
+    "Download graph",
+    {
+      value: null,
+      reduce: () => download_graph(plot)
+    }
+  )
+);
 
 ```
 

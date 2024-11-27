@@ -1,0 +1,10 @@
+const download_button = view(Inputs.button("Download graphic"));
+download_button;
+htmlToImage
+  .toPng(plot, { pixelRatio: 2 })
+  .then(function (dataUrl) {
+    download(dataUrl, "my-node.png");
+  })
+  .catch(function (error) {
+    console.error("Image download failed: ", error);
+  });
