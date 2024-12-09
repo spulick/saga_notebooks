@@ -1,5 +1,5 @@
 ---
-title: Example report
+title: Up up and away we go
 ---
 
 # A brief history of space exploration
