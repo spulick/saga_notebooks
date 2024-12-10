@@ -7,9 +7,9 @@
 <title>Saga</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
+<link rel="preload" as="style" href="./_observablehq/theme-air.aad62322.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air.aad62322.css">
 <link rel="modulepreload" href="./_observablehq/client.6a2fb94e.js">
 <link rel="modulepreload" href="./_observablehq/runtime.9393ab6d.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.3ac83553.js">
@@ -56,13 +56,13 @@
 
 import {define} from "./_observablehq/client.6a2fb94e.js";
 
-define({id: "7935742a", mode: "inline", inputs: ["resize","Plot","aapl","display"], body: async (resize,Plot,aapl,display) => {
+define({id: "57e2085d", mode: "inline", inputs: ["resize","Plot","aapl","display"], body: async (resize,Plot,aapl,display) => {
 display(await(
     resize((width) => Plot.plot({
-      title: "Your awesomeness over time 🚀",
+      title: "Some goofy dataset",
       subtitle: "Up and to the right!",
       width,
-      y: {grid: true, label: "Awesomeness"},
+      y: {grid: true, label: "Chaos"},
       marks: [
         Plot.ruleY([0]),
         Plot.lineY(aapl, {x: "Date", y: "Close", tip: true})
@@ -101,7 +101,7 @@ display(await(
     <li class="observablehq-link observablehq-link-active"><a href="./">Saga</a></li>
   </ol>
   <ol>
-    <li class="observablehq-link"><a href="./example-report">Example report</a></li>
+    <li class="observablehq-link"><a href="./example-report">Up up and away we go</a></li>
   </ol>
 </nav>
 <script>{const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
@@ -109,11 +109,11 @@ display(await(
 <main id="observablehq-main" class="observablehq">
 <div class="hero">
   <h1>Saga</h1>
-  <h2>Welcome to your new app! Edit&nbsp;<code style="font-size: 90%;">src/index.md</code> to change this page.</h2>
-  <a href="https://observablehq.com/framework/getting-started" target="_blank" rel="noopener noreferrer">Get started<span style="display: inline-block; margin-left: 0.25rem;">↗︎</span></a>
+  <!-- <h2>Welcome to your new app! Edit&nbsp;<code style="font-size: 90%;">src/index.md</code> to change this page.</h2>
+  <a href="https://observablehq.com/framework/getting-started">Get started<span style="display: inline-block; margin-left: 0.25rem;">↗︎</span></a> -->
 </div>
 <div class="grid grid-cols-2" style="grid-auto-rows: 504px;">
-  <div class="card"><observablehq-loading></observablehq-loading><!--:7935742a:--></div>
+  <div class="card"><observablehq-loading></observablehq-loading><!--:57e2085d:--></div>
   <div class="card"><observablehq-loading></observablehq-loading><!--:699041c1:--></div>
 </div>
 <hr>
@@ -124,6 +124,7 @@ display(await(
   flex-direction: column;
   align-items: center;
   font-family: var(--sans-serif);
+  tex
   margin: 4rem 0 8rem;
   text-wrap: balance;
   text-align: center;
@@ -136,7 +137,7 @@ display(await(
   font-size: 14vw;
   font-weight: 900;
   line-height: 1;
-  background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
+  background: linear-gradient(30deg, #477984, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -161,8 +162,8 @@ display(await(
 </style>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="next" href="./example-report"><span>Example report</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-11-28T02:31:11">Nov 28, 2024</a>.</div>
+<nav><a rel="next" href="./example-report"><span>Up up and away we go</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-12-10T11:14:18">Dec 10, 2024</a>.</div>
 </footer>
 </div>
 </body>
