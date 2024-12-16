@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@observablehq/framework": "^1.13.0"
+    "@observablehq/framework": "github:observablehq/framework"
   }
 }
